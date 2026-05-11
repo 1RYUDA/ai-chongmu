@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보처리방침 · AI 총무</title>
+    <meta name="description" content="AI 총무 개인정보처리방침">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <style>
+        :root {
+            --navy: #1E3A8A;
+            --blue: #3B82F6;
+            --yellow: #FCD34D;
+            --bg: #FAFBFC;
+            --ink: #0F172A;
+            --ink-2: #334155;
+            --ink-3: #64748B;
+            --line: #E2E8F0;
+            --line-soft: #F1F5F9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .back-link {
+            color: var(--ink-3);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--line-soft);
+            color: var(--navy);
+        }
+
+        .hero {
+            max-width: 820px;
+            margin: 60px auto 40px;
+            padding: 0 24px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--blue);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 900;
+            color: var(--ink);
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 24px;
+            color: var(--ink-3);
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta span strong {
+            color: var(--ink-2);
+            font-weight: 700;
+        }
+
+        .doc {
+            max-width: 820px;
+            margin: 0 auto 100px;
+            padding: 0 24px;
+        }
+
+        .doc-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 48px 56px;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.04);
+        }
+
+        @media (max-width: 600px) {
+            .doc-card {
+                padding: 32px 24px;
+                border-radius: 16px;
+            }
+        }
+
+        /* Summary box */
+        .summary {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.04), rgba(59, 130, 246, 0.04));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-title::before {
+            content: "📋";
+            font-size: 16px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 10px 24px;
+            font-size: 14.5px;
+        }
+
+        @media (max-width: 600px) {
+            .summary-grid {
+                grid-template-columns: 100px 1fr;
+                gap: 8px 16px;
+            }
+        }
+
+        .summary-grid dt {
+            color: var(--ink-3);
+            font-weight: 600;
+        }
+
+        .summary-grid dd {
+            color: var(--ink-2);
+            font-weight: 500;
+        }
+
+        .toc {
+            background: var(--line-soft);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+        }
+
+        .toc-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--ink-3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+        }
+
+        @media (max-width: 600px) {
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .toc-list a {
+            color: var(--ink-2);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 0;
+            display: flex;
+            gap: 10px;
+            transition: color 0.2s;
+        }
+
+        .toc-list a:hover {
+            color: var(--blue);
+        }
+
+        .toc-list a span {
+            color: var(--ink-3);
+            font-weight: 600;
+            min-width: 24px;
+        }
+
+        article h2 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 48px 0 16px;
+            padding-top: 8px;
+            scroll-margin-top: 100px;
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        article h2:first-of-type {
+            margin-top: 0;
+        }
+
+        article h2::before {
+            content: attr(data-num);
+            color: var(--blue);
+            font-weight: 900;
+            font-size: 14px;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        article p {
+            color: var(--ink-2);
+            margin-bottom: 14px;
+            font-size: 15.5px;
+        }
+
+        article ol,
+        article ul {
+            margin: 12px 0 14px 20px;
+            color: var(--ink-2);
+        }
+
+        article ol li,
+        article ul li {
+            margin-bottom: 8px;
+            font-size: 15.5px;
+            padding-left: 4px;
+        }
+
+        article strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        /* Data tables */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 16px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            font-size: 14.5px;
+        }
+
+        .data-table thead {
+            background: var(--line-soft);
+        }
+
+        .data-table th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 13px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            color: var(--ink-2);
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table td strong {
+            color: var(--ink);
+        }
+
+        .callout {
+            background: linear-gradient(135deg, rgba(252, 211, 77, 0.15), rgba(252, 211, 77, 0.05));
+            border-left: 4px solid var(--yellow);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 14.5px;
+            color: var(--ink-2);
+        }
+
+        .callout strong {
+            color: var(--ink);
+        }
+
+        .footer-info {
+            margin-top: 60px;
+            padding-top: 32px;
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-info-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--ink-3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .footer-info-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 8px 24px;
+            font-size: 14px;
+        }
+
+        .footer-info-grid dt {
+            color: var(--ink-3);
+            font-weight: 600;
+        }
+
+        .footer-info-grid dd {
+            color: var(--ink-2);
+            font-weight: 500;
+        }
+
+        footer.site-foot {
+            background: #0F1626;
+            color: #94A3B8;
+            text-align: center;
+            padding: 40px 24px;
+            font-size: 13px;
+        }
+
+        footer.site-foot a {
+            color: #CBD5E1;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+        }
+
+        footer.site-foot a:hover {
+            color: white;
+        }
+
+        footer.site-foot .brand {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="https://ai-chongmu.kr" class="logo">
+                <span class="logo-mark">A</span>
+                <span>AI 총무</span>
+            </a>
+            <a href="https://ai-chongmu.kr" class="back-link">← 홈으로</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="badge">법적 문서</div>
+        <h1>개인정보처리방침</h1>
+        <div class="hero-meta">
+            <span><strong>시행일</strong> 2026년 5월 12일</span>
+            <span><strong>최종 개정</strong> 2026년 5월 12일</span>
+            <span><strong>버전</strong> v1.3 (베타)</span>
+        </div>
+    </section>
+
+    <main class="doc">
+        <div class="doc-card">
+
+            <div class="summary">
+                <div class="summary-title">한눈에 보는 요약</div>
+                <dl class="summary-grid">
+                    <dt>수집 항목</dt>
+                    <dd>이름, 이메일, 전화번호, 고시원 정보, 입주자 정보 (위탁)</dd>
+                    <dt>수집 목적</dt>
+                    <dd>회원 식별, 알림톡 발송, 운영 자동화 서비스 제공</dd>
+                    <dt>보유 기간</dt>
+                    <dd>회원 탈퇴 후 30일 이내 파기 (법령상 의무 보관 시 예외)</dd>
+                    <dt>제3자 제공</dt>
+                    <dd>원칙적으로 제공하지 않음 (법령상 예외 발생 시 별도 고지)</dd>
+                    <dt>위탁 처리</dt>
+                    <dd>(주)카카오(알림톡), 토스페이먼츠(결제), Supabase(DB), Vercel(호스팅)</dd>
+                    <dt>마케팅 활용</dt>
+                    <dd>별도 동의를 받은 회원에 한해 광고성 정보 발송</dd>
+                </dl>
+            </div>
+
+            <nav class="toc">
+                <div class="toc-title">목차</div>
+                <ul class="toc-list">
+                    <li><a href="#a1"><span>01</span>총칙</a></li>
+                    <li><a href="#a2"><span>02</span>수집 항목 및 방법</a></li>
+                    <li><a href="#a3"><span>03</span>수집·이용 목적</a></li>
+                    <li><a href="#a4"><span>04</span>보유 및 이용 기간</a></li>
+                    <li><a href="#a5"><span>05</span>제3자 제공</a></li>
+                    <li><a href="#a6"><span>06</span>처리 위탁</a></li>
+                    <li><a href="#a7"><span>07</span>입주자 정보의 처리</a></li>
+                    <li><a href="#a8"><span>08</span>이용자의 권리</a></li>
+                    <li><a href="#a9"><span>09</span>파기 절차 및 방법</a></li>
+                    <li><a href="#a10"><span>10</span>안전성 확보 조치</a></li>
+                    <li><a href="#a11"><span>11</span>만 14세 미만 보호</a></li>
+                    <li><a href="#a12"><span>12</span>쿠키 및 자동수집</a></li>
+                    <li><a href="#a13"><span>13</span>개인정보 보호책임자</a></li>
+                    <li><a href="#a14"><span>14</span>방침 변경</a></li>
+                    <li><a href="#a15"><span>15</span>부칙</a></li>
+                </ul>
+            </nav>
+
+            <article>
+
+                <h2 id="a1" data-num="제1조">총칙</h2>
+                <p>고시(Goshi, 이하 "회사")는 회원이 운영하는 <strong>AI 총무</strong>(이하 "서비스")의 이용 과정에서 수집하는 개인정보를 「개인정보 보호법」, 「정보통신망
+                    이용촉진 및
+                    정보보호 등에 관한 법률」 등 관련 법령에 따라 안전하게 보호하고자 본 개인정보처리방침을 수립합니다.</p>
+                <p>회사는 이용자의 개인정보를 매우 중요하게 생각하며, 이용자가 안심하고 서비스를 이용할 수 있도록 최선을 다하고 있습니다.</p>
+
+                <h2 id="a2" data-num="제2조">수집하는 개인정보 항목 및 수집 방법</h2>
+                <p>회사가 수집하는 개인정보 항목은 다음과 같습니다.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>수집 항목</th>
+                            <th>수집 시점</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>회원 정보 (필수)</strong></td>
+                            <td>이름, 이메일, 전화번호</td>
+                            <td>회원 가입 시</td>
+                        </tr>
+                        <tr>
+                            <td><strong>사업 정보 (필수)</strong></td>
+                            <td>고시원 명칭, 주소, 방 개수</td>
+                            <td>고시원 등록 시</td>
+                        </tr>
+                        <tr>
+                            <td><strong>운영 정보 (선택)</strong></td>
+                            <td>평균 입실률, 운영 시간 등</td>
+                            <td>고시원 등록 시</td>
+                        </tr>
+                        <tr>
+                            <td><strong>입주자 정보 (위탁)</strong></td>
+                            <td>이름, 전화번호, 방번호, 계약 기간</td>
+                            <td>회원이 입주자 등록 시</td>
+                        </tr>
+                        <tr>
+                            <td><strong>결제 정보</strong></td>
+                            <td>카드 정보 (결제 대행사 보관)</td>
+                            <td>정식 출시 후 결제 시</td>
+                        </tr>
+                        <tr>
+                            <td><strong>자동 수집 정보</strong></td>
+                            <td>IP 주소, 쿠키, 접속 로그, 서비스 이용 기록</td>
+                            <td>서비스 이용 시</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>수집 방법</strong></p>
+                <ul>
+                    <li>서비스 가입 페이지를 통한 직접 입력</li>
+                    <li>고객 상담을 위한 카카오톡 채널 문의</li>
+                    <li>서비스 이용 과정에서의 자동 수집 (쿠키, 접속 로그)</li>
+                </ul>
+
+                <h2 id="a3" data-num="제3조">개인정보의 수집·이용 목적</h2>
+                <p>회사는 수집한 개인정보를 다음 목적을 위해 이용하며, 이용 목적이 변경될 경우 사전에 동의를 구합니다.</p>
+                <ol>
+                    <li><strong>회원 식별 및 서비스 제공</strong>: 회원 가입 확인, 회원 식별, 서비스 이용 기록 관리</li>
+                    <li><strong>운영 자동화 서비스 제공</strong>: 입실료 알림, 공실 관리, QR 자동 등록 등 서비스 핵심 기능</li>
+                    <li><strong>알림 발송</strong>: 카카오 알림톡을 통한 입주자 안내 메시지 발송</li>
+                    <li><strong>고객 지원</strong>: 문의 응대, 불만 처리, 공지사항 전달</li>
+                    <li><strong>서비스 개선</strong>: 이용 통계 분석, 신규 기능 개발, 서비스 품질 향상 (개인 식별 정보를 제외한 통계 처리)</li>
+                    <li><strong>요금 정산</strong>: 정식 출시 후 결제 처리 및 정산 (베타 기간 미적용)</li>
+                    <li><strong>마케팅 및 광고 활용</strong>: 신규 서비스 소개, 이벤트 안내 (이는 회원의 <strong>별도 동의</strong>를 받은 경우에 한하며, 회원은
+                        언제든지 동의를
+                        철회할 수 있습니다)</li>
+                </ol>
+
+                <h2 id="a4" data-num="제4조">개인정보의 보유 및 이용 기간</h2>
+                <p>회사는 회원의 개인정보를 원칙적으로 다음 기간 동안 보유 및 이용하며, 기간 경과 시 지체 없이 파기합니다.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>보유 기간</th>
+                            <th>근거</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>회원 정보</td>
+                            <td>회원 탈퇴 후 30일 이내 파기</td>
+                            <td>내부 방침 (분쟁 대응 기간)</td>
+                        </tr>
+                        <tr>
+                            <td>사업 정보 (고시원)</td>
+                            <td>서비스 이용 종료 후 30일 이내 파기</td>
+                            <td>내부 방침</td>
+                        </tr>
+                        <tr>
+                            <td>입주자 정보</td>
+                            <td>입주 계약 종료 후 90일 이내 파기</td>
+                            <td>운영 인수인계 기간</td>
+                        </tr>
+                        <tr>
+                            <td>접속 로그, IP</td>
+                            <td>3개월</td>
+                            <td>「통신비밀보호법」</td>
+                        </tr>
+                        <tr>
+                            <td>계약·청약철회 기록</td>
+                            <td>5년</td>
+                            <td>「전자상거래법」</td>
+                        </tr>
+                        <tr>
+                            <td>대금 결제·재화 공급 기록</td>
+                            <td>5년</td>
+                            <td>「전자상거래법」</td>
+                        </tr>
+                        <tr>
+                            <td>소비자 불만·분쟁 처리 기록</td>
+                            <td>3년</td>
+                            <td>「전자상거래법」</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>관련 법령에 따라 보존이 필요한 경우 해당 법령에서 정한 기간 동안 보관합니다.</p>
+
+                <h2 id="a5" data-num="제5조">개인정보의 제3자 제공</h2>
+                <ol>
+                    <li>회사는 원칙적으로 회원의 개인정보를 외부에 제공하지 않습니다.</li>
+                    <li>다만 다음 각 호의 경우에는 예외로 합니다.
+                        <ul>
+                            <li>회원이 사전에 동의한 경우</li>
+                            <li>법령의 규정에 따르거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+                            <li>통계 작성, 학술 연구 또는 시장 조사를 위해 특정 개인을 식별할 수 없는 형태로 가공하여 제공하는 경우</li>
+                            <li>회원의 생명·신체 또는 재산상의 이익을 위해 필요하다고 인정되는 경우</li>
+                        </ul>
+                    </li>
+                    <li>제3자 제공이 필요한 경우, 회사는 제공받는 자, 제공 목적, 제공 항목, 보유 기간 등을 사전에 회원에게 고지하고 동의를 받습니다.</li>
+                </ol>
+
+                <h2 id="a6" data-num="제6조">개인정보 처리의 위탁</h2>
+                <p>회사는 원활한 서비스 제공을 위해 다음과 같이 개인정보 처리 업무를 외부 전문업체에 위탁합니다.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>수탁업체</th>
+                            <th>위탁 업무</th>
+                            <th>처리 항목</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>(주)카카오</strong></td>
+                            <td>알림톡 발송 및 카카오톡 채널 운영</td>
+                            <td>입주자 이름, 전화번호</td>
+                        </tr>
+                        <tr>
+                            <td><strong>(주)토스페이먼츠</strong></td>
+                            <td>결제 처리 (정식 출시 후)</td>
+                            <td>카드 정보, 결제 금액</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Supabase Inc.</strong></td>
+                            <td>데이터베이스 호스팅</td>
+                            <td>회원 정보, 운영 데이터</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vercel Inc.</strong></td>
+                            <td>웹사이트 호스팅</td>
+                            <td>접속 로그, IP 주소</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>회사는 위탁 계약 시 「개인정보 보호법」에 따라 위탁 업무 수행 목적 외 개인정보 처리 금지, 기술적·관리적 보호조치 등을 명확히 규정합니다. 위탁 업체가 변경되는 경우 본 방침을
+                    통해
+                    공지합니다.</p>
+
+                <h2 id="a7" data-num="제7조">입주자 정보의 처리에 관한 특별 조항</h2>
+                <ol>
+                    <li>회원이 서비스 이용을 위해 등록하는 입주자 정보는 회사가 회원으로부터 <strong>위탁받아 처리</strong>하는 정보로, 회원은 해당 정보의 처리 책임자에 해당합니다.
+                    </li>
+                    <li>회원은 입주자 정보를 등록함에 있어 다음 의무를 부담합니다.
+                        <ul>
+                            <li>입주자에게 본 서비스 이용 사실 사전 고지</li>
+                            <li>입주자로부터 개인정보 처리에 관한 동의 확보</li>
+                            <li>입주자 정보의 정확성 유지 및 변경 시 즉시 갱신</li>
+                            <li>입주자가 동의 철회 또는 정보 삭제를 요청한 경우 즉시 처리</li>
+                        </ul>
+                    </li>
+                    <li>회사는 입주자 정보를 알림 발송 및 회원의 운영 관리 지원 목적 외에 사용하지 않습니다.</li>
+                    <li>입주자는 회원(원장님)을 통해 자신의 정보 열람·정정·삭제를 요청할 수 있으며, 회사에 직접 요청한 경우에도 신원 확인 후 회원에게 통보한 뒤 처리합니다.</li>
+                </ol>
+
+                <div class="callout">
+                    <strong>💬 입주자분께 안내</strong><br>
+                    본 서비스(AI 총무)에 등록된 입주자 정보는 운영자(원장님)가 입주 관리를 위해 등록한 것입니다. 본인의 정보 처리에 대한 문의는 운영자께 직접 요청하시거나, 아래 개인정보
+                    보호책임자에게
+                    연락주시기 바랍니다.
+                </div>
+
+                <h2 id="a8" data-num="제8조">이용자의 권리와 행사 방법</h2>
+                <ol>
+                    <li>이용자는 언제든지 자신의 개인정보를 열람, 정정, 삭제, 처리 정지를 요청할 수 있습니다.</li>
+                    <li>위 권리 행사는 서비스 내 메뉴 또는 이메일(<strong>lyu7211@naver.com</strong>)을 통해 요청할 수 있으며, 회사는 지체 없이 조치합니다.
+                    </li>
+                    <li>이용자가 개인정보 오류에 대한 정정을 요청하신 경우, 정정 완료 시까지 해당 개인정보를 이용 또는 제공하지 않습니다.</li>
+                    <li>이용자의 대리인이 권리를 행사하는 경우, 정당한 대리권을 증명할 수 있는 서류를 함께 제출하여야 합니다.</li>
+                </ol>
+
+                <h2 id="a9" data-num="제9조">개인정보의 파기 절차 및 방법</h2>
+                <ol>
+                    <li>회사는 보유 기간 경과 또는 처리 목적 달성 등으로 개인정보가 불필요해진 경우 지체 없이 파기합니다.</li>
+                    <li><strong>파기 절차</strong>: 이용자의 개인정보는 목적 달성 후 별도의 DB로 옮겨져 내부 방침 및 관련 법령에 따라 일정 기간 저장된 후 파기됩니다.</li>
+                    <li><strong>파기 방법</strong>
+                        <ul>
+                            <li>전자적 파일: 복구할 수 없는 방법으로 영구 삭제</li>
+                            <li>종이 문서: 분쇄기로 분쇄하거나 소각</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h2 id="a10" data-num="제10조">개인정보의 안전성 확보 조치</h2>
+                <p>회사는 「개인정보 보호법」 제29조에 따라 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+                <ol>
+                    <li><strong>기술적 조치</strong>
+                        <ul>
+                            <li>개인정보 전송 시 SSL/TLS 암호화 통신 적용</li>
+                            <li>비밀번호의 일방향 해시(bcrypt) 알고리즘을 통한 암호화 저장</li>
+                            <li>주요 개인정보의 데이터베이스 저장 시 암호화 처리</li>
+                            <li>방화벽 및 침입 차단 시스템 운영 (클라우드 인프라 Vercel, Supabase의 보안 기능 활용)</li>
+                            <li>접근 로그의 보관 및 정기 점검</li>
+                        </ul>
+                    </li>
+                    <li><strong>관리적 조치</strong>
+                        <ul>
+                            <li>개인정보 처리자(현재 대표 1인)에 대한 보안 교육 및 서약</li>
+                            <li>개인정보 접근 권한의 최소화 및 차등 부여</li>
+                            <li>개인정보 처리 기록의 정기 점검</li>
+                            <li>위탁 업체에 대한 보안 의무 부과 및 정기 점검</li>
+                        </ul>
+                    </li>
+                    <li><strong>물리적 조치</strong>
+                        <ul>
+                            <li>개인정보가 저장된 클라우드 서버의 물리적 보안은 (주)카카오, Supabase Inc., Vercel Inc. 등 위탁 업체의 데이터센터 보안 정책(국제 보안
+                                인증 SOC 2, ISO
+                                27001 등 보유)에 따릅니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="callout">
+                    <strong>🚨 개인정보 유출 시 통지</strong><br>
+                    회사는 개인정보가 분실·도난·유출된 사실을 알게 된 경우, 「개인정보 보호법」 제34조에 따라 지체 없이 (72시간 이내) 해당 이용자에게 통지하고 관계 기관(개인정보보호위원회
+                    또는
+                    한국인터넷진흥원)에 신고합니다.
+                </div>
+
+                <h2 id="a11" data-num="제11조">만 14세 미만 아동의 개인정보 보호</h2>
+                <ol>
+                    <li>회사는 「개인정보 보호법」 제22조의2에 따라 만 14세 미만 아동의 회원 가입을 받지 않습니다.</li>
+                    <li>본 서비스는 임대 사업 운영자를 대상으로 하므로, 모든 회원은 만 19세 이상의 사업 운영자 또는 사업 운영 의사가 있는 자에 한정됩니다.</li>
+                    <li>회원이 등록하는 입주자 정보 중 만 14세 미만 아동의 정보가 포함된 경우, 회원은 해당 아동의 법정대리인의 동의를 받아야 하며, 이에 대한 책임은 회원에게 있습니다.
+                    </li>
+                </ol>
+
+                <h2 id="a12" data-num="제12조">쿠키(Cookie) 및 자동 수집 정보</h2>
+                <ol>
+                    <li>회사는 서비스 제공 및 이용 통계 분석을 위해 쿠키(Cookie)를 사용할 수 있습니다.</li>
+                    <li>쿠키는 웹사이트가 이용자의 브라우저에 보내는 작은 정보 파일로, 이용자의 컴퓨터 하드디스크에 저장됩니다.</li>
+                    <li>이용자는 웹 브라우저 설정을 통해 쿠키 저장을 거부할 수 있으나, 이 경우 서비스 일부 기능 이용에 제한이 있을 수 있습니다.
+                        <ul>
+                            <li>Chrome: 설정 → 개인정보 및 보안 → 쿠키 및 기타 사이트 데이터</li>
+                            <li>Edge: 설정 → 쿠키 및 사이트 권한 → 쿠키 및 저장된 데이터 관리</li>
+                            <li>Safari: 환경설정 → 개인정보 보호 → 쿠키 및 웹사이트 데이터</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h2 id="a13" data-num="제13조">개인정보 보호책임자</h2>
+                <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 이용자의 불만 처리 및 피해 구제 등을 위해 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
+                </p>
+
+                <div style="background: var(--line-soft); border-radius: 12px; padding: 20px 24px; margin: 16px 0;">
+                    <div style="font-weight: 800; color: var(--navy); margin-bottom: 12px;">▸ 개인정보 보호책임자</div>
+                    <div
+                        style="display: grid; grid-template-columns: 80px 1fr; gap: 8px 16px; font-size: 14.5px; color: var(--ink-2);">
+                        <div style="color: var(--ink-3); font-weight: 600;">성명</div>
+                        <div>류성민 (대표)</div>
+                        <div style="color: var(--ink-3); font-weight: 600;">이메일</div>
+                        <div>lyu7211@naver.com</div>
+                        <div style="color: var(--ink-3); font-weight: 600;">상담 채널</div>
+                        <div>카카오톡 채널 "AI 총무"</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 14px; color: var(--ink-3); margin-top: 16px;">이용자는 회사의 서비스를 이용하면서 발생하는 모든 개인정보 보호
+                    관련 문의, 불만
+                    처리, 피해 구제 등에 관한 사항을 위 개인정보 보호책임자에게 문의할 수 있으며, 회사는 이용자의 문의에 대해 지체 없이 답변 및 처리합니다.</p>
+
+                <p style="font-size: 14px; color: var(--ink-3); margin-top: 16px;">기타 개인정보 침해에 대한 신고나 상담이 필요한 경우 다음 기관에
+                    문의하실 수
+                    있습니다.</p>
+                <ul style="font-size: 14px; color: var(--ink-3);">
+                    <li>개인정보분쟁조정위원회 (kopico.go.kr / 1833-6972)</li>
+                    <li>개인정보침해신고센터 (privacy.kisa.or.kr / 118)</li>
+                    <li>대검찰청 사이버수사과 (spo.go.kr / 1301)</li>
+                    <li>경찰청 사이버수사국 (ecrm.cyber.go.kr / 182)</li>
+                </ul>
+
+                <h2 id="a14" data-num="제14조">개인정보처리방침의 변경</h2>
+                <p>본 개인정보처리방침은 법령, 정책 또는 보안 기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 수 있으며, 변경 시 적용일자 <strong>7일 전부터</strong> 서비스
+                    공지사항 및
+                    이메일을 통해 고지합니다. 이용자에게 불리한 변경의 경우 적용일자 <strong>30일 전부터</strong> 공지하고 별도의 동의를 받습니다.</p>
+
+                <h2 id="a15" data-num="부 칙">시행일</h2>
+                <p>본 개인정보처리방침(v1.3)은 <strong>2026년 5월 12일</strong>부터 시행합니다. 회사의 사업자등록이 완료되는 2026년 5월 25일 이후, 사업자등록번호 등
+                    사업자 정보가
+                    푸터에 추가될 예정이며, 이는 본 방침의 본질적 내용 변경에 해당하지 않습니다.</p>
+
+                <div class="footer-info">
+                    <div class="footer-info-title">사업자 정보</div>
+                    <dl class="footer-info-grid">
+                        <dt>상호</dt>
+                        <dd>고시 (Goshi)</dd>
+                        <dt>서비스명</dt>
+                        <dd>AI 총무</dd>
+                        <dt>대표자</dt>
+                        <dd>류성민</dd>
+                        <dt>사업자등록번호</dt>
+                        <dd>2026년 5월 25일 등록 예정</dd>
+                        <dt>통신판매업 신고</dt>
+                        <dd>정식 출시 시 신고 예정</dd>
+                        <dt>이메일</dt>
+                        <dd>lyu7211@naver.com</dd>
+                        <dt>홈페이지</dt>
+                        <dd>https://ai-chongmu.kr</dd>
+                        <dt>고객 상담</dt>
+                        <dd>카카오톡 채널 "AI 총무"</dd>
+                    </dl>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-foot">
+        <span class="brand">AI 총무 — 고시원 1인 원장님의 24시간 디지털 비서</span>
+        <a href="https://ai-chongmu.kr">홈</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <div style="margin-top: 16px; opacity: 0.6;">© 2026 고시 (Goshi). All rights reserved.</div>
+        <div style="margin-top: 4px; opacity: 0.5; font-size: 12px;">베타 서비스 개인정보처리방침 v1.3 · 정식 출시 시 일부 조항이 개정될 수 있습니다.
+        </div>
+    </footer>
+
+</body>
+
+</html>
