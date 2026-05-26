@@ -75,6 +75,33 @@
         scroll-behavior: auto;
       }
     }
+
+    /* === Pricing v4 카드 스타일 === */
+    .navy-shadow {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 24px 48px -12px rgba(30,58,138,0.25), 0 8px 16px rgba(30,58,138,0.08);
+    }
+    .price-card { transition: all 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .price-card:hover { transform: translateY(-8px); }
+    .recommended-card { transform: scale(1.04); }
+    .recommended-card:hover { transform: scale(1.04) translateY(-8px); }
+    @media (max-width: 1023px) {
+      .recommended-card { transform: none; }
+      .recommended-card:hover { transform: translateY(-8px); }
+    }
+    .btn-yellow { transition: all 0.2s ease; }
+    .btn-yellow:hover { transform: translateY(-1px); box-shadow: 0 14px 28px -6px rgba(252,211,77,0.55); }
+    .pricing-badge { background:#DBEAFE; color:#2563EB; font-weight:700; font-size:13px; letter-spacing:0.05em; text-transform:uppercase; padding:6px 16px; border-radius:999px; }
+    .recommend-badge {
+      position:absolute; top:-16px; left:50%; transform:translateX(-50%);
+      background:linear-gradient(135deg,#FCD34D,#F59E0B); color:#1E3A8A;
+      padding:8px 22px; border-radius:999px; font-size:13px; font-weight:900;
+      box-shadow:0 10px 24px rgba(252,211,77,0.55); white-space:nowrap; z-index:10;
+    }
+    .room-emphasis { font-size: 28px; font-weight: 900; letter-spacing: -1px; }
+    @media(min-width:768px){ .room-emphasis{ font-size: 32px; } }
+    .branch-text { font-size: 13px; opacity: 0.7; font-weight: 600; }
+    .check-yellow { width:24px;height:24px;background:#1E3A8A;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#FCD34D;font-weight:900;font-size:14px;flex-shrink:0; }
+    .common-features-box { background: linear-gradient(135deg, #FEFCE8, #FEF3C7); border: 2px solid #FCD34D; }
   </style>
   <style>
     /* 텍스트 선택 방지 (이미지/콘텐츠 보호) */
@@ -1110,89 +1137,155 @@
           <span
             class="inline-block text-xs md:text-sm font-bold text-[#2563EB] tracking-wider uppercase mb-3 py-1.5 px-4 bg-[#DBEAFE] rounded-full">PRICING</span>
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-4 break-keep">요금 안내</h2>
-          <p class="text-base md:text-lg text-gray-700 break-keep">복잡한 플랜 없이, 단 하나의 가격.</p>
+          <p class="text-base md:text-lg text-gray-700 break-keep">
+            <span class="text-[#1E3A8A] font-bold">핵심 기능은 모두 동일</span>, <span class="text-[#1E3A8A] font-bold">운영 규모(호실 수 · 알림 발송량)</span>에 맞춰 가격을 나눴어요.
+          </p>
         </div>
 
-        <div class="max-w-3xl mx-auto">
-          <div
-            class="bg-gradient-to-br from-[#1E3A8A] via-[#2563EB] to-[#1E40AF] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl shadow-blue-500/30">
-            <div class="absolute -top-32 -right-32 w-96 h-96 bg-[#FCD34D]/15 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"></div>
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-3 gap-7 lg:gap-6 items-stretch">
 
-            <div class="relative">
-              <div
-                class="inline-flex items-center gap-2 bg-[#FCD34D] text-gray-900 px-4 py-1.5 rounded-full text-xs font-extrabold mb-6">
-                🎁 베타 기간 100% 무료 체험
+            <!-- BASIC -->
+            <div class="price-card bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] text-white rounded-[32px] p-8 md:p-10 navy-shadow relative flex flex-col">
+              <div class="mb-6">
+                <div class="text-xs font-black text-yellow-300 tracking-[0.2em] mb-2">BASIC</div>
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight" style="letter-spacing:-1px;">소형 고시원</h3>
               </div>
-
-              <h3 class="text-3xl md:text-5xl font-black mb-3 break-keep">AI 총무</h3>
-              <p class="text-white/80 text-base md:text-lg mb-8 break-keep">고시원 운영의 모든 것을 한 곳에서.</p>
-
-              <div class="flex items-baseline gap-3 mb-2">
-                <div class="text-6xl md:text-8xl font-black">60,000</div>
-                <div class="text-xl md:text-3xl font-bold text-white/80">원<span
-                    class="text-base md:text-lg text-white/60 font-medium">/월</span></div>
-              </div>
-              <div class="mb-8">
-                <span
-                  class="inline-block bg-white/15 backdrop-blur-sm text-[#FCD34D] text-xs md:text-sm font-bold px-3 py-1 rounded-full">
-                  💡 베타 기간 동안 100% 무료로 시작하세요
-                </span>
-              </div>
-
-              <div class="grid sm:grid-cols-2 gap-3 mb-8">
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">방 무제한 관리</span></div>
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">자동 카톡 알림</span></div>
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">QR 입주 등록</span></div>
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">공실 관리</span></div>
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">미납 자동 관리</span></div>
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">매출 대시보드</span></div>
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">계약서 자동 생성</span></div>
-                <div class="flex items-center gap-3"><span
-                    class="w-6 h-6 bg-[#FCD34D] rounded-full flex items-center justify-center text-gray-900 text-xs font-bold flex-shrink-0">✓</span><span
-                    class="text-white/95 text-sm md:text-base">1:1 카톡 지원</span></div>
-              </div>
-
-              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 mb-8 border border-white/20">
-                <div class="font-bold mb-2 flex items-center gap-2">
-                  <span>🌱</span>
-                  <span>지금 함께 시작하시는 분께</span>
+              <div class="mb-7">
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-3xl">🏠</span>
+                  <span class="room-emphasis">~20실</span>
                 </div>
-                <ul class="text-sm text-white/90 space-y-1">
-                  <li>• 베타 기간 동안 모든 기능 <strong class="text-[#FCD34D]">100% 무료</strong></li>
-                  <li>• 새로 추가되는 기능을 <strong class="text-[#FCD34D]">우선 무료로 체험</strong></li>
-                  <li>• 원장님 의견을 직접 반영해 <strong class="text-[#FCD34D]">맞춤 서비스</strong>로 발전</li>
-                </ul>
+                <p class="branch-text text-yellow-200/80 ml-11">1지점 · 호실 한도</p>
               </div>
+              <div class="mb-6 border-t border-white/15 pt-6">
+                <div class="flex items-baseline gap-1.5 mb-3">
+                  <span class="text-[44px] md:text-[56px] font-black leading-none tracking-tighter" style="letter-spacing:-2.5px;">30,000</span>
+                  <span class="text-lg md:text-xl font-bold opacity-80">원</span>
+                  <span class="text-sm opacity-60">/월</span>
+                </div>
+                <div class="inline-flex items-center gap-1.5 bg-yellow-400 text-[#1E3A8A] px-3.5 py-2 rounded-xl text-sm font-black shadow-lg">
+                  🎁 베타 기간 100% 무료
+                </div>
+              </div>
+              <a href="/signup?plan=basic" class="btn-yellow block w-full py-4 bg-white/10 backdrop-blur border-2 border-white/30 text-white rounded-2xl font-black text-base text-center mt-auto hover:bg-white/20">
+                BASIC 시작 →
+              </a>
+            </div>
 
-              <button
-                class="block w-full text-center bg-[#FCD34D] text-gray-900 py-4 md:py-5 rounded-2xl text-base md:text-lg font-extrabold hover:bg-white transition-all shadow-2xl">
-                무료로 시작하기 →
-              </button>
-              <p class="text-center text-xs text-white/60 mt-4">신용카드 등록 불필요 · 1분 가입 · 언제든 해지 가능</p>
+            <!-- STANDARD (강력 강조) -->
+            <div class="price-card recommended-card bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] text-white rounded-[32px] p-8 md:p-10 navy-shadow relative flex flex-col border-[3px] border-yellow-400">
+              <div class="recommend-badge">⭐ 가장 인기</div>
+              <div class="mb-6">
+                <div class="text-xs font-black text-yellow-300 tracking-[0.2em] mb-2">STANDARD</div>
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight" style="letter-spacing:-1px;">중형 고시원</h3>
+              </div>
+              <div class="mb-7">
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-3xl">🏠</span>
+                  <span class="room-emphasis">21~40실</span>
+                </div>
+                <p class="branch-text text-yellow-200/80 ml-11">1지점 · 호실 한도</p>
+              </div>
+              <div class="mb-6 border-t border-white/15 pt-6">
+                <div class="flex items-baseline gap-1.5 mb-3">
+                  <span class="text-[44px] md:text-[56px] font-black leading-none tracking-tighter" style="letter-spacing:-2.5px;">50,000</span>
+                  <span class="text-lg md:text-xl font-bold opacity-80">원</span>
+                  <span class="text-sm opacity-60">/월</span>
+                </div>
+                <div class="inline-flex items-center gap-1.5 bg-yellow-400 text-[#1E3A8A] px-3.5 py-2 rounded-xl text-sm font-black shadow-lg">
+                  🎁 베타 기간 100% 무료
+                </div>
+              </div>
+              <a href="/signup?plan=standard" class="btn-yellow block w-full py-4 bg-yellow-400 text-[#1E3A8A] rounded-2xl font-black text-base text-center mt-auto shadow-xl">
+                STANDARD 시작 →
+              </a>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="price-card bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] text-white rounded-[32px] p-8 md:p-10 navy-shadow relative flex flex-col">
+              <div class="mb-6">
+                <div class="text-xs font-black text-yellow-300 tracking-[0.2em] mb-2">PREMIUM</div>
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight" style="letter-spacing:-1px;">대형 · 다지점</h3>
+              </div>
+              <div class="mb-7">
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-3xl">🏠</span>
+                  <span class="room-emphasis">무제한</span>
+                </div>
+                <p class="branch-text text-yellow-200/80 ml-11">다지점 통합 운영</p>
+              </div>
+              <div class="mb-6 border-t border-white/15 pt-6">
+                <div class="flex items-baseline gap-1.5 mb-3">
+                  <span class="text-[44px] md:text-[56px] font-black leading-none tracking-tighter" style="letter-spacing:-2.5px;">70,000</span>
+                  <span class="text-lg md:text-xl font-bold opacity-80">원</span>
+                  <span class="text-sm opacity-60">/월</span>
+                </div>
+                <div class="inline-flex items-center gap-1.5 bg-yellow-400 text-[#1E3A8A] px-3.5 py-2 rounded-xl text-sm font-black shadow-lg">
+                  🎁 베타 기간 100% 무료
+                </div>
+              </div>
+              <a href="/signup?plan=premium" class="btn-yellow block w-full py-4 bg-white/10 backdrop-blur border-2 border-white/30 text-white rounded-2xl font-black text-base text-center mt-auto hover:bg-white/20">
+                PREMIUM 시작 →
+              </a>
             </div>
           </div>
 
-          <div class="mt-8 bg-blue-50 rounded-2xl p-6 border border-blue-100 text-center">
-            <p class="text-sm text-gray-800 break-keep">
-              <span class="font-bold">💡 솔직하게 말씀드릴게요.</span><br />
-              정식 출시 후에는 월 60,000원으로 운영될 예정입니다.
-              베타 기간 동안은 원장님과 함께 만들어가는 시간이라 무료로 제공해드려요.
-            </p>
+          <!-- 공통기능 박스 -->
+          <div class="mt-12 common-features-box rounded-[28px] p-8 md:p-10 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-yellow-300/20 rounded-full -mr-20 -mt-20"></div>
+            <div class="relative">
+              <div class="text-center mb-7">
+                <div class="inline-flex items-center gap-2 bg-[#1E3A8A] text-yellow-300 px-4 py-1.5 rounded-full text-xs font-black mb-3">
+                  ✨ 모든 플랜 공통
+                </div>
+                <h3 class="text-2xl md:text-3xl font-black text-gray-900" style="letter-spacing:-0.5px;">
+                  모든 기능을 똑같이 제공해드려요
+                </h3>
+                <p class="text-sm text-gray-700 mt-2" style="word-break:keep-all;">
+                  BASIC이든 PREMIUM이든 <strong class="text-[#3B82F6]">핵심 기능은 차별 없이 그대로</strong>. 규모에 맞게 작게 시작해서 키워가세요.
+                </p>
+              </div>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-2xl p-4">
+                  <span class="check-yellow">✓</span>
+                  <span class="text-sm font-bold text-gray-800">자동 카톡 알림</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-2xl p-4">
+                  <span class="check-yellow">✓</span>
+                  <span class="text-sm font-bold text-gray-800">QR 입주 등록</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-2xl p-4">
+                  <span class="check-yellow">✓</span>
+                  <span class="text-sm font-bold text-gray-800">공실 · 미납 관리</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-2xl p-4">
+                  <span class="check-yellow">✓</span>
+                  <span class="text-sm font-bold text-gray-800">매출 대시보드</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-2xl p-4">
+                  <span class="check-yellow">✓</span>
+                  <span class="text-sm font-bold text-gray-800">계약서 자동 생성</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-2xl p-4">
+                  <span class="check-yellow">✓</span>
+                  <span class="text-sm font-bold text-gray-800">1:1 카톡 지원</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 솔직 박스 -->
+          <div class="mt-10 max-w-3xl mx-auto bg-white rounded-2xl p-7 border border-gray-100 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div class="text-3xl flex-shrink-0">🍯</div>
+              <div>
+                <div class="font-black text-gray-900 mb-2 text-base">솔직하게 말씀드릴게요.</div>
+                <p class="text-sm text-gray-600 leading-relaxed" style="word-break:keep-all;">
+                  정식 출시 후에는 위 가격으로 운영될 예정입니다. 베타 기간은 원장님과 함께 만드는 시간이라 모든 플랜 무료. 카톡 의견 환영합니다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
