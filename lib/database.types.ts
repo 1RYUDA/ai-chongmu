@@ -36,6 +36,9 @@ export type Database = {
           email: string // 로그인 이메일
           plan: string // 요금제 (예: 'free'|'beta'|'pro') ※실제 값 확인 필요
           is_beta: boolean // 베타 사용자 여부
+          agreed_terms: boolean // 이용약관 동의 (필수)
+          agreed_privacy: boolean // 개인정보 동의 (필수)
+          agreed_marketing: boolean // 마케팅 동의 (선택)
           created_at: Timestamp // 생성 시각 (DB가 자동 기록)
           updated_at: Timestamp // 수정 시각 (DB가 자동 기록)
         }
@@ -47,6 +50,9 @@ export type Database = {
           email: string
           plan?: string
           is_beta?: boolean
+          agreed_terms?: boolean
+          agreed_privacy?: boolean
+          agreed_marketing?: boolean
           created_at?: Timestamp
           updated_at?: Timestamp
         }
@@ -58,9 +64,13 @@ export type Database = {
           email?: string
           plan?: string
           is_beta?: boolean
+          agreed_terms?: boolean
+          agreed_privacy?: boolean
+          agreed_marketing?: boolean
           created_at?: Timestamp
           updated_at?: Timestamp
         }
+        Relationships: []
       }
 
       // ── properties : 고시원(매물) 정보 ─────────────────────────────
@@ -72,6 +82,8 @@ export type Database = {
           region: string // 지역 (예: 서울 관악구)
           address: string // 상세 주소
           room_count: number // 방 개수
+          region_sigungu: string // 시·군·구 (예: 김해시)
+          room_tier: string // 호실 구간 ("~20실"/"21~40실"/"41실 이상")
           created_at: Timestamp
           updated_at: Timestamp
         }
@@ -80,8 +92,10 @@ export type Database = {
           user_id: string
           name: string
           region: string
-          address: string
-          room_count: number
+          address?: string
+          room_count?: number
+          region_sigungu: string
+          room_tier: string
           created_at?: Timestamp
           updated_at?: Timestamp
         }
@@ -92,14 +106,17 @@ export type Database = {
           region?: string
           address?: string
           room_count?: number
+          region_sigungu?: string
+          room_tier?: string
           created_at?: Timestamp
           updated_at?: Timestamp
         }
+        Relationships: []
       }
     }
-    // 아직 사용 안 함 (Supabase 자동 생성 형식과 호환되도록 비워둠)
     Views: { [_ in never]: never }
     Functions: { [_ in never]: never }
     Enums: { [_ in never]: never }
+    CompositeTypes: { [_ in never]: never }
   }
 }
