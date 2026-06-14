@@ -40,8 +40,8 @@ export default function LoginPage() {
         return
       }
 
-      // 성공 → 홈으로 (대시보드는 추후)
-      router.push('/')
+      // 성공 → 대시보드로 이동
+      router.push('/dashboard')
     } catch (err) {
       setErrorMsg(getSafeErrorMessage(err))
     } finally {
