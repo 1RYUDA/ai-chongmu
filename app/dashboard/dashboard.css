@@ -1,0 +1,90 @@
+/* ============================================================
+ * 대시보드 전용 스타일 (시안에서 추출)
+ * 모든 셀렉터를 .dash-root 로 스코프 → login/signup/랜딩에 영향 없음
+ * ============================================================ */
+
+/* 40~60대 가독성: 대시보드 내부 잔글씨 상향 + 회색 진하게 */
+.dash-root { font-size: 17px; }
+.dash-root .text-xs { font-size: .84rem; }
+.dash-root .text-sm { font-size: .96rem; }
+.dash-root .text-\[9px\],
+.dash-root .text-\[10px\],
+.dash-root .text-\[11px\] { font-size: .76rem; }
+.dash-root .text-gray-500 { color: #4B5563; }
+.dash-root .text-gray-400 { color: #6B7280; }
+
+/* 그림자 / 사이드바 / 카드 */
+.dash-root .soft-shadow { box-shadow: 0 1px 2px rgba(0,0,0,.02), 0 8px 24px -4px rgba(30,58,138,.08); }
+.dash-root .strong-shadow { box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 24px 48px -12px rgba(30,58,138,.15); }
+.dash-root .sidebar-container { background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%); }
+.dash-root .sidebar-item { transition: all .2s ease; cursor: pointer; }
+.dash-root .sidebar-item:hover { background: rgba(255,255,255,.06); }
+.dash-root .sidebar-item.active { background: rgba(255,255,255,.12); border-left: 3px solid #FCD34D; }
+.dash-root .stat-card { transition: all .3s ease; }
+.dash-root .stat-card:hover { transform: translateY(-2px); }
+
+/* 뱃지 / 게이지 / 버튼 / live-dot */
+.dash-root .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.dash-root .badge-pending { background: #FEF3C7; color: #92400E; }
+.dash-root .badge-new { background: #DBEAFE; color: #1E40AF; }
+.dash-root .progress-bar { background: linear-gradient(90deg, #1E3A8A, #3B82F6); }
+.dash-root .btn-primary { transition: all .2s ease; }
+.dash-root .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(30,58,138,.4); }
+.dash-root .live-dot {
+  width: 8px; height: 8px; background: #10B981; border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16,185,129,.4); animation: dash-pulse-ring 2s ease-out infinite;
+}
+@keyframes dash-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(16,185,129,.4); }
+  100% { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+}
+
+/* 타이포 / 브랜드 */
+.dash-root .t-page { font-size: 1.5rem; font-weight: 900; color: #111827; line-height: 1.25; }
+.dash-root .t-section { font-size: 1.05rem; font-weight: 800; color: #111827; line-height: 1.3; }
+.dash-root .brand { display: flex; align-items: center; gap: .625rem; }
+.dash-root .brand-name { font-size: 1.3rem; font-weight: 900; line-height: 1.05; color: #fff; }
+.dash-root .brand-sub { font-size: .6rem; font-weight: 700; letter-spacing: .205em; opacity: .7; line-height: 1; margin-top: .3rem; color: #fff; }
+
+/* ── 호실 현황판 ── */
+.dash-root .room {
+  aspect-ratio: 1/1; border-radius: 12px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; font-weight: 900;
+  border: 2px solid transparent; transition: transform .12s, box-shadow .12s;
+}
+.dash-root .room:hover { transform: translateY(-2px); box-shadow: 0 6px 14px -4px rgba(30,58,138,.25); cursor: pointer; }
+.dash-root .room b { font-size: 1rem; line-height: 1; }
+.dash-root .room span { font-size: .7rem; font-weight: 700; opacity: .9; margin-top: 2px; }
+.dash-root .room.dim { opacity: .18; filter: grayscale(.5); }
+.dash-root .room-occupied { background: #EFF6FF; color: #1E3A8A; border-color: #BFDBFE; }
+.dash-root .room-overdue { background: #FEE2E2; color: #991B1B; border-color: #FCA5A5; }
+.dash-root .room-vacant { background: #F3F4F6; color: #6B7280; border-color: #E5E7EB; border-style: dashed; }
+.dash-root .room-clean { background: #FEF9C3; color: #854D0E; border-color: #FDE68A; }
+
+.dash-root .floor-head {
+  display: flex; align-items: center; justify-content: space-between; cursor: pointer;
+  padding: .55rem .25rem; user-select: none; border-radius: 10px;
+}
+.dash-root .floor-head:hover { background: #F8FAFC; }
+.dash-root .floor-chip { font-size: .72rem; font-weight: 800; padding: 2px 9px; border-radius: 999px; }
+.dash-root .chev { transition: transform .2s; }
+.dash-root .chev.closed { transform: rotate(-90deg); }
+.dash-root .seg { display: flex; height: 14px; border-radius: 999px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.04); }
+
+.dash-root .fbtn {
+  font-size: .78rem; font-weight: 800; padding: 5px 12px; border-radius: 999px;
+  border: 2px solid #E5E7EB; color: #475569; cursor: pointer; transition: all .12s; background: #fff;
+}
+.dash-root .fbtn.on { background: #1E3A8A; color: #fff; border-color: #1E3A8A; }
+
+/* 지점 드롭다운 */
+.dash-root .branch-menu {
+  position: absolute; top: 110%; left: 0; background: #fff; border: 1px solid #E5E7EB;
+  border-radius: 14px; box-shadow: 0 12px 28px -6px rgba(30,58,138,.22); padding: 6px; min-width: 240px; z-index: 50;
+}
+.dash-root .branch-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 12px; border-radius: 10px; cursor: pointer; font-weight: 700;
+}
+.dash-root .branch-item:hover { background: #F1F5F9; }
+.dash-root .branch-item.on { background: #EFF6FF; color: #1E3A8A; }
